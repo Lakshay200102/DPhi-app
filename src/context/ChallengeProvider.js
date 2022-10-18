@@ -1,0 +1,65 @@
+import { createContext, useContext, useState } from "react";
+import Travel from "../assets/cardimage/Group 1000002466.png";
+import Butterfly from "../assets/cardimage/Group 1000002766.png";
+import Datathon from "../assets/cardimage/Group 1000002771.png";
+import Graduates from "../assets/cardimage/Group 1000002773.png";
+
+const ChallengeContext = createContext();
+
+const ChallengeProvider = (props) => {
+  const [appliedFilter, setAppliedFilter] = useState([]);
+  const [challengeArray, setChallengeArray] = useState([
+    {
+      _id: "g98sHiD5yq",
+      pic: Datathon,
+      name: "Data Science Bootcamp - Graded Datathon",
+      startDate: "2022-10-18T12:00",
+      endDate: "2022-10-21T15:00",
+      level: "Easy",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus itaque impedit perspiciatis tempora voluptatem minus hic molestias labore voluptatum similique nihil enim, nesciunt dolorum alias sint quam dolorem animi unde praesentium iure sunt ipsam beatae. Totam enim, vero doloremque excepturi aliquam iusto tenetur corrupti soluta dignissimos, facilis nesciunt quidem modi? Vel consequatur laborum enim officiis modi fugit corporis porro assumenda dolorum. Accusamus eveniet porro eaque itaque iure ipsa quis necessitatibus delectus neque molestias nemo modi tempora deserunt, asperiores maiores cupiditate voluptate in tempore culpa. Corrupti ut illum amet debitis ducimus excepturi magni beatae iure hic, ullam quod rerum fuga illo sit? Exercitationem ducimus consectetur est eum quibusdam laboriosam incidunt omnis illum tempora accusantium pariatur debitis ullam neque, ipsam quaerat labore explicabo tempore facere. Aliquam veniam, minima nostrum quam amet dolores, commodi sunt optio corrupti doloremque, animi eaque enim alias harum quasi? Debitis nostrum, maxime numquam ratione praesentium odio asperiores.",
+    },
+    {
+      _id: "GluLo1IHOX",
+      pic: Butterfly,
+      name: "Data Sprint 72 - Butterfly Identification",
+      startDate: "2022-10-15",
+      endDate: "2022-10-17",
+      level: "Medium",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus itaque impedit perspiciatis tempora voluptatem minus hic molestias labore voluptatum similique nihil enim, nesciunt dolorum alias sint quam dolorem animi unde praesentium iure sunt ipsam beatae. Totam enim, vero doloremque excepturi aliquam iusto tenetur corrupti soluta dignissimos, facilis nesciunt quidem modi? Vel consequatur laborum enim officiis modi fugit corporis porro assumenda dolorum. Accusamus eveniet porro eaque itaque iure ipsa quis necessitatibus delectus neque molestias nemo modi tempora deserunt, asperiores maiores cupiditate voluptate in tempore culpa. Corrupti ut illum amet debitis ducimus excepturi magni beatae iure hic, ullam quod rerum fuga illo sit? Exercitationem ducimus consectetur est eum quibusdam laboriosam incidunt omnis illum tempora accusantium pariatur debitis ullam neque, ipsam quaerat labore explicabo tempore facere. Aliquam veniam, minima nostrum quam amet dolores, commodi sunt optio corrupti doloremque, animi eaque enim alias harum quasi? Debitis nostrum, maxime numquam ratione praesentium odio asperiores.",
+    },
+    {
+      _id: "XDqxtDJhhw",
+      pic: Graduates,
+      name: "Engineering Graduates Employment Outcomes",
+      startDate: "2022-10-12",
+      endDate: "2022-10-15",
+      level: "Easy",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus itaque impedit perspiciatis tempora voluptatem minus hic molestias labore voluptatum similique nihil enim, nesciunt dolorum alias sint quam dolorem animi unde praesentium iure sunt ipsam beatae. Totam enim, vero doloremque excepturi aliquam iusto tenetur corrupti soluta dignissimos, facilis nesciunt quidem modi? Vel consequatur laborum enim officiis modi fugit corporis porro assumenda dolorum. Accusamus eveniet porro eaque itaque iure ipsa quis necessitatibus delectus neque molestias nemo modi tempora deserunt, asperiores maiores cupiditate voluptate in tempore culpa. Corrupti ut illum amet debitis ducimus excepturi magni beatae iure hic, ullam quod rerum fuga illo sit? Exercitationem ducimus consectetur est eum quibusdam laboriosam incidunt omnis illum tempora accusantium pariatur debitis ullam neque, ipsam quaerat labore explicabo tempore facere. Aliquam veniam, minima nostrum quam amet dolores, commodi sunt optio corrupti doloremque, animi eaque enim alias harum quasi? Debitis nostrum, maxime numquam ratione praesentium odio asperiores.",
+    },
+    {
+      _id: "OloAhQskMw",
+      pic: Travel,
+      name: "Travel Insurance Claim Prediction",
+      startDate: "2022-10-08",
+      endDate: "2022-10-10",
+      level: "Hard",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus itaque impedit perspiciatis tempora voluptatem minus hic molestias labore voluptatum similique nihil enim, nesciunt dolorum alias sint quam dolorem animi unde praesentium iure sunt ipsam beatae. Totam enim, vero doloremque excepturi aliquam iusto tenetur corrupti soluta dignissimos, facilis nesciunt quidem modi? Vel consequatur laborum enim officiis modi fugit corporis porro assumenda dolorum. Accusamus eveniet porro eaque itaque iure ipsa quis necessitatibus delectus neque molestias nemo modi tempora deserunt, asperiores maiores cupiditate voluptate in tempore culpa. Corrupti ut illum amet debitis ducimus excepturi magni beatae iure hic, ullam quod rerum fuga illo sit? Exercitationem ducimus consectetur est eum quibusdam laboriosam incidunt omnis illum tempora accusantium pariatur debitis ullam neque, ipsam quaerat labore explicabo tempore facere. Aliquam veniam, minima nostrum quam amet dolores, commodi sunt optio corrupti doloremque, animi eaque enim alias harum quasi? Debitis nostrum, maxime numquam ratione praesentium odio asperiores.",
+    },
+  ]);
+
+  return (
+    <ChallengeContext.Provider value={{challengeArray, setChallengeArray, appliedFilter, setAppliedFilter}}>
+      {props.children}
+    </ChallengeContext.Provider>
+  );
+};
+
+export const ChallengeState = () => {
+  return useContext(ChallengeContext);
+};
+
+export default ChallengeProvider;

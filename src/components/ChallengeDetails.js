@@ -1,0 +1,187 @@
+import {
+  Box,
+  Button,
+  Input,
+  Select,
+  Text,
+  Textarea,
+} from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { ChallengeState } from "../context/ChallengeProvider";
+
+const ChallengeDetails = () => {
+  const { challengeid } = useParams();
+  const { challengeArray, setChallengeArray } = ChallengeState();
+  const history = useHistory();
+
+  const [name, setName] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [desc, setDesc] = useState("");
+  const [pic, setPic] = useState("");
+  const [level, setLevel] = useState("");
+
+  useEffect(() => {
+    if (challengeid) {
+      const challengeDetails = challengeArray.find((challenge) => {
+        return challenge._id === challengeid;
+      });
+      setName(challengeDetails.name);
+      setStartDate(challengeDetails.startDate);
+      setEndDate(challengeDetails.endDate);
+      setDesc(challengeDetails.description);
+      setLevel(challengeDetails.level);
+    }
+  }, [challengeid]);
+
+  const postDetails = (pics) => {
+    if (pics) {
+      const data = new FormData();
+      data.append("file", pics);
+      data.append("upload_preset", "dephi-app");
+      data.append("cloud_name", "captaincomder");
+      fetch("https://api.cloudinary.com/v1_1/captaincomder/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setPic(data.url.toString());
+        });
+    }
+  };
+
+  const editHandler = async (event) => {
+    event.preventDefault();
+
+    if (!name || !startDate || !endDate || !desc || !level) {
+      return;
+    }
+
+    const challenge = await challengeArray.find(
+      (challenge) => challenge._id === challengeid
+    );
+    challenge._id = challengeid;
+    challenge.name = name;
+    challenge.startDate = startDate;
+    challenge.endDate = endDate;
+    challenge.pic = pic ? pic : challenge.pic;
+    challenge.description = desc;
+    challenge.level = level;
+
+    const newChallengeArray = await challengeArray.filter(
+      (challenge) => challenge._id !== challengeid
+    );
+
+    setChallengeArray([challenge, ...newChallengeArray]);
+    history.push("/");
+  };
+
+  const newChallengeHandler = async (event) => {
+    event.preventDefault();
+
+    if (!name || !startDate || !endDate || !desc || !pic || !level) {
+      return;
+    }
+
+    const challenge = {
+      _id: Math.floor(1000000 * Math.random()),
+      pic: pic,
+      name: name,
+      startDate: startDate,
+      endDate: endDate,
+      description: desc,
+      level: level,
+    };
+
+    await setChallengeArray([challenge, ...challengeArray]);
+    history.push("/");
+  };
+
+  return (
+    <Box padding={16}>
+      <Text as="b" fontSize="3xl">
+        Challenge Details
+      </Text>
+      <Text marginTop={10} marginBottom={3}>
+        Challenge Name
+      </Text>
+      <Input
+        type="text"
+        width="30vw"
+        borderColor="black"
+        onChange={(e) => setName(e.target.value)}
+        value={name}
+      />
+      <Text marginTop={10} marginBottom={3}>
+        Start Date
+      </Text>
+      <Input
+        type="datetime-local"
+        width="30vw"
+        borderColor="black"
+        onChange={(e) => setStartDate(e.target.value)}
+        value={startDate}
+      />
+      <Text marginTop={10} marginBottom={3}>
+        End Date
+      </Text>
+      <Input
+        type="datetime-local"
+        width="30vw"
+        borderColor="black"
+        onChange={(e) => setEndDate(e.target.value)}
+        value={endDate}
+      />
+      <Text marginTop={10} marginBottom={3}>
+        Description
+      </Text>
+      <Textarea
+        size="sm"
+        width="30vw"
+        borderColor="black"
+        onChange={(e) => setDesc(e.target.value)}
+        value={desc}
+      />
+      <Text marginTop={10} marginBottom={3}>
+        Image
+      </Text>
+      <Input
+        type="file"
+        id="picInp"
+        accept="image/*"
+        border="none"
+        onChange={(e) => postDetails(e.target.files[0])}
+      />
+      <Text marginTop={10} marginBottom={3}>
+        Level
+      </Text>
+      <Select
+        placeholder="Select option"
+        width="30vw"
+        borderColor="black"
+        variant="filled"
+        onChange={(e) => setLevel(e.target.value)}
+        value={level}
+      >
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </Select>
+      <Button
+        background="whatsapp.500"
+        color="white"
+        _hover={{ background: "whatsapp.600" }}
+        marginTop={10}
+        marginBottom={3}
+        type="submit"
+        onClick={challengeid ? editHandler : newChallengeHandler}
+      >
+        {challengeid ? "Save Changes" : "Create Challenge"}
+      </Button>
+    </Box>
+  );
+};
+
+export default ChallengeDetails;
