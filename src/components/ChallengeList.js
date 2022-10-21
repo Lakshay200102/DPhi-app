@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { ChallengeState } from "../context/ChallengeProvider";
 
 const ChallengeList = () => {
-  const { challengeArray, appliedFilter } = ChallengeState();
+  const { challengeArray, appliedFilter, searchQuery, setSearchQuery } = ChallengeState();
   const history = useHistory();
 
   const [filteredResults, setFilteredResults] = useState([]);

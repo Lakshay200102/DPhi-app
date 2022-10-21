@@ -8,6 +8,7 @@ const ChallengeContext = createContext();
 
 const ChallengeProvider = (props) => {
   const [appliedFilter, setAppliedFilter] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [challengeArray, setChallengeArray] = useState([
     {
       _id: "g98sHiD5yq",
@@ -52,7 +53,16 @@ const ChallengeProvider = (props) => {
   ]);
 
   return (
-    <ChallengeContext.Provider value={{challengeArray, setChallengeArray, appliedFilter, setAppliedFilter}}>
+    <ChallengeContext.Provider
+      value={{
+        challengeArray,
+        setChallengeArray,
+        appliedFilter,
+        setAppliedFilter,
+        searchQuery,
+        setSearchQuery,
+      }}
+    >
       {props.children}
     </ChallengeContext.Provider>
   );
