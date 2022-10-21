@@ -84,7 +84,7 @@ const ChallengeList = () => {
 
   useEffect(() => {
     setInterval(timeChangeHandler, 60000);
-  }, []);
+  }, [timeChange]);
 
   useEffect(() => {
     let results = [...challengeArray];
