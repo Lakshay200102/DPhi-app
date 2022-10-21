@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { ChallengeState } from "../context/ChallengeProvider";
 
 const ChallengeList = () => {
-  const { challengeArray, appliedFilter, searchQuery } = ChallengeState();
+  const { challengeArray, appliedFilter } = ChallengeState();
   const history = useHistory();
 
   const [filteredResults, setFilteredResults] = useState([]);
@@ -79,12 +79,12 @@ const ChallengeList = () => {
   };
 
   const timeChangeHandler = () => {
-    setTimeChange(!timeChange);
-  };
+    setTimeChange(!timeChange)
+  }
 
   useEffect(() => {
     setInterval(timeChangeHandler, 60000);
-  }, [timeChange, searchQuery]);
+  }, []);
 
   useEffect(() => {
     let results = [...challengeArray];
@@ -148,58 +148,51 @@ const ChallengeList = () => {
         flexWrap="wrap"
         justifyContent="space-between"
       >
-        {filteredResults
-          .filter((item) => {
-            return item.name
-              .toString()
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase());
-          })
-          .map((challenge) => (
-            <Box
-              display="flex"
-              height={{ base: "75vh", md: "50vh" }}
-              width={{ base: "90vw", md: "30vw", lg: "18vw" }}
-              margin={{ base: 10, md: 5, lg: 10 }}
+        {filteredResults.map((challenge) => (
+          <Box
+            display="flex"
+            height={{ base: "75vh", md: "50vh" }}
+            width={{ base: "90vw", md: "30vw", lg: "18vw" }}
+            margin={{ base: 10, md: 5, lg: 10 }}
+            borderRadius="lg"
+            background="white"
+            justifyContent="space-between"
+            flexDir="column"
+            alignItems="center"
+            key={challenge._id}
+          >
+            <Image
+              src={challenge.pic}
+              height="35%"
+              width="100%"
               borderRadius="lg"
-              background="white"
-              justifyContent="space-between"
-              flexDir="column"
-              alignItems="center"
-              key={challenge._id}
-            >
-              <Image
-                src={challenge.pic}
-                height="35%"
-                width="100%"
-                borderRadius="lg"
-              />
-              <Box>
-                <Badge
-                  textAlign="center"
-                  width={{ base: "20vw", md: "10vw", lg: "7vw" }}
-                  padding={1}
-                  colorScheme="purple"
-                >
-                  {STATUS(challenge.startDate, challenge.endDate)}
-                </Badge>
-              </Box>
-              <Text as="b" fontSize="lg" textAlign="center">
-                {challenge.name}
-              </Text>
-              <Text>{SUBSTATUS(challenge.startDate, challenge.endDate)}</Text>
-              <Text>{TIME(challenge.startDate, challenge.endDate)}</Text>
-
-              <Button
-                marginBottom={5}
-                leftIcon={<CheckIcon />}
-                colorScheme="green"
-                onClick={() => history.push(`/viewchallenge/${challenge._id}`)}
+            />
+            <Box>
+              <Badge
+                textAlign="center"
+                width={{ base: "20vw", md: "10vw", lg: "7vw" }}
+                padding={1}
+                colorScheme="purple"
               >
-                Participate Now
-              </Button>
+                {STATUS(challenge.startDate, challenge.endDate)}
+              </Badge>
             </Box>
-          ))}
+            <Text as="b" fontSize="lg" textAlign="center">
+              {challenge.name}
+            </Text>
+            <Text>{SUBSTATUS(challenge.startDate, challenge.endDate)}</Text>
+            <Text>{TIME(challenge.startDate, challenge.endDate)}</Text>
+
+            <Button
+              marginBottom={5}
+              leftIcon={<CheckIcon />}
+              colorScheme="green"
+              onClick={() => history.push(`/viewchallenge/${challenge._id}`)}
+            >
+              Participate Now
+            </Button>
+          </Box>
+        ))}
       </Box>
     </Box>
   );

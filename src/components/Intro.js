@@ -1,4 +1,4 @@
-import { Box, Image, Text, Link } from "@chakra-ui/react";
+import { Box, Button, Image, Text, Link } from "@chakra-ui/react";
 import React from "react";
 import { Link as ReachLink } from "react-router-dom";
 import Rocket from "../assets/icons/PicsArt_04-14-04.42 1.svg";

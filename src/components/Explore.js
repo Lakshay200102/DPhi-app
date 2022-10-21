@@ -16,8 +16,7 @@ import { ChevronDownIcon, Search2Icon } from "@chakra-ui/icons";
 import { ChallengeState } from "../context/ChallengeProvider";
 
 const Explore = () => {
-  const { appliedFilter, setAppliedFilter, searchQuery, setSearchQuery } =
-    ChallengeState();
+  const {appliedFilter, setAppliedFilter} = ChallengeState();
 
   const checkBoxHandler = (event) => {
     const newFilter = event.target.value;
@@ -29,10 +28,6 @@ const Explore = () => {
     } else {
       setAppliedFilter([newFilter, ...appliedFilter]);
     }
-  };
-
-  const searchQueryHandler = (e) => {
-    setSearchQuery(e.target.value);
   };
 
   return (
@@ -67,8 +62,6 @@ const Explore = () => {
             width="70%"
             background="white"
             borderRadius="lg"
-            value={searchQuery}
-            onChange={searchQueryHandler}
           />
           <Menu>
             <MenuButton

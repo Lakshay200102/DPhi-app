@@ -1,8 +1,6 @@
 import {
   Box,
   Button,
-  Icon,
-  Image,
   Input,
   Select,
   Text,
@@ -11,9 +9,6 @@ import {
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { ChallengeState } from "../context/ChallengeProvider";
-import cloudUpload from "../assets/icons/bxs_cloud-upload.svg";
-import imageFilled from '../assets/icons/bi_image-fill.svg'
-import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const ChallengeDetails = () => {
   const { challengeid } = useParams();
@@ -35,7 +30,6 @@ const ChallengeDetails = () => {
       setName(challengeDetails.name);
       setStartDate(challengeDetails.startDate);
       setEndDate(challengeDetails.endDate);
-      setPic(challengeDetails.pic);
       setDesc(challengeDetails.description);
       setLevel(challengeDetails.level);
     }
@@ -61,7 +55,7 @@ const ChallengeDetails = () => {
   const editHandler = async (event) => {
     event.preventDefault();
 
-    if (!name || !startDate || !endDate || !desc || !pic || !level) {
+    if (!name || !startDate || !endDate || !desc || !level) {
       return;
     }
 
@@ -115,7 +109,7 @@ const ChallengeDetails = () => {
       </Text>
       <Input
         type="text"
-        width={{base: '100%', md: "30vw"}}
+        width="30vw"
         borderColor="black"
         onChange={(e) => setName(e.target.value)}
         value={name}
@@ -125,7 +119,7 @@ const ChallengeDetails = () => {
       </Text>
       <Input
         type="datetime-local"
-        width={{base: '100%', md: "30vw"}}
+        width="30vw"
         borderColor="black"
         onChange={(e) => setStartDate(e.target.value)}
         value={startDate}
@@ -135,7 +129,7 @@ const ChallengeDetails = () => {
       </Text>
       <Input
         type="datetime-local"
-        width={{base: '100%', md: "30vw"}}
+        width="30vw"
         borderColor="black"
         onChange={(e) => setEndDate(e.target.value)}
         value={endDate}
@@ -145,7 +139,7 @@ const ChallengeDetails = () => {
       </Text>
       <Textarea
         size="sm"
-        width={{base: '100%', md: "30vw"}}
+        width="30vw"
         borderColor="black"
         onChange={(e) => setDesc(e.target.value)}
         value={desc}
@@ -153,48 +147,13 @@ const ChallengeDetails = () => {
       <Text marginTop={10} marginBottom={3}>
         Image
       </Text>
-
-      <Image
-        src={pic}
-        alt="Error"
-        width='100'
-        height='40'
-        display={pic ? "block" : "none"}
-        marginTop={5}
-        marginBottom={5}
-      />
-      <Box
-        textAlign="center"
-        width="fit-content"
-        border="2px"
-        borderColor="gray"
-        background="#FFFDD0"
-        _hover={{ background: "lightgray" }}
-        borderRadius="lg"
-        paddingTop={3}
-        paddingBottom={3}
-        paddingRight={20}
-        paddingLeft={20}
-      >
-        <label htmlFor="picInp" style={{ cursor: "pointer" }}>
-          <Text fontSize={{base: 'md', md: "lg"}} display="flex" alignItems={"center"}>
-            <Image src={imageFilled} marginRight={2} display={pic?'block':'none'} />
-            {pic?"Change Image" : 'Upload'}
-            <Icon as={ArrowForwardIcon} marginLeft={2} display={pic?'block':'none'} />
-            <Image src={cloudUpload} display={pic?'none':'block'} marginLeft={2} />
-          </Text>
-        </label>
-      </Box>
       <Input
-        opacity={0}
-        display="none"
         type="file"
         id="picInp"
         accept="image/*"
         border="none"
         onChange={(e) => postDetails(e.target.files[0])}
       />
-
       <Text marginTop={10} marginBottom={3}>
         Level
       </Text>
