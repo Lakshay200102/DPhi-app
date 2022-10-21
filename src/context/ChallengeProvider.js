@@ -12,7 +12,7 @@ const ChallengeProvider = (props) => {
   const [challengeArray, setChallengeArray] = useState([
     {
       _id: "g98sHiD5yq",
-      pic: Datathon,
+      pic: 'https://res.cloudinary.com/captaincomder/image/upload/v1666374098/qdllojo9svjye1pxuxlh.png',
       name: "Data Science Bootcamp - Graded Datathon",
       startDate: "2022-10-19T12:00",
       endDate: "2022-10-22T12:00",
@@ -22,7 +22,7 @@ const ChallengeProvider = (props) => {
     },
     {
       _id: "GluLo1IHOX",
-      pic: Butterfly,
+      pic: 'https://res.cloudinary.com/captaincomder/image/upload/v1666371564/ihpeeoonebv1lwfsorj4.png',
       name: "Data Sprint 72 - Butterfly Identification",
       startDate: "2022-10-22T15:00",
       endDate: "2022-10-25T15:00",
@@ -32,7 +32,7 @@ const ChallengeProvider = (props) => {
     },
     {
       _id: "XDqxtDJhhw",
-      pic: Graduates,
+      pic: 'https://res.cloudinary.com/captaincomder/image/upload/v1666374052/hyqekyttdtf2dvw5tvla.png',
       name: "Engineering Graduates Employment Outcomes",
       startDate: "2022-10-12T18:00",
       endDate: "2022-10-15T18:00",
@@ -42,7 +42,7 @@ const ChallengeProvider = (props) => {
     },
     {
       _id: "OloAhQskMw",
-      pic: Travel,
+      pic: 'https://res.cloudinary.com/captaincomder/image/upload/v1666374013/ooexenacnhpakqijghcu.png',
       name: "Travel Insurance Claim Prediction",
       startDate: "2022-10-08T21:00",
       endDate: "2022-10-10T21:00",
