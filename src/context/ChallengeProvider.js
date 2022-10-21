@@ -1,8 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import Travel from "../assets/cardimage/Group 1000002466.png";
-import Butterfly from "../assets/cardimage/Group 1000002766.png";
-import Datathon from "../assets/cardimage/Group 1000002771.png";
-import Graduates from "../assets/cardimage/Group 1000002773.png";
 
 const ChallengeContext = createContext();
 

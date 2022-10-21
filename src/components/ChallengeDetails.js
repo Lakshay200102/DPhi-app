@@ -115,7 +115,7 @@ const ChallengeDetails = () => {
       </Text>
       <Input
         type="text"
-        width="30vw"
+        width={{base: '100%', md: "30vw"}}
         borderColor="black"
         onChange={(e) => setName(e.target.value)}
         value={name}
@@ -125,7 +125,7 @@ const ChallengeDetails = () => {
       </Text>
       <Input
         type="datetime-local"
-        width="30vw"
+        width={{base: '100%', md: "30vw"}}
         borderColor="black"
         onChange={(e) => setStartDate(e.target.value)}
         value={startDate}
@@ -135,7 +135,7 @@ const ChallengeDetails = () => {
       </Text>
       <Input
         type="datetime-local"
-        width="30vw"
+        width={{base: '100%', md: "30vw"}}
         borderColor="black"
         onChange={(e) => setEndDate(e.target.value)}
         value={endDate}
@@ -145,7 +145,7 @@ const ChallengeDetails = () => {
       </Text>
       <Textarea
         size="sm"
-        width="30vw"
+        width={{base: '100%', md: "30vw"}}
         borderColor="black"
         onChange={(e) => setDesc(e.target.value)}
         value={desc}
@@ -157,8 +157,8 @@ const ChallengeDetails = () => {
       <Image
         src={pic}
         alt="Error"
-        width={300}
-        height={150}
+        width='100'
+        height='40'
         display={pic ? "block" : "none"}
         marginTop={5}
         marginBottom={5}
@@ -177,7 +177,7 @@ const ChallengeDetails = () => {
         paddingLeft={20}
       >
         <label htmlFor="picInp" style={{ cursor: "pointer" }}>
-          <Text fontSize="lg" display="flex" alignItems={"center"}>
+          <Text fontSize={{base: 'md', md: "lg"}} display="flex" alignItems={"center"}>
             <Image src={imageFilled} marginRight={2} display={pic?'block':'none'} />
             {pic?"Change Image" : 'Upload'}
             <Icon as={ArrowForwardIcon} marginLeft={2} display={pic?'block':'none'} />

@@ -35,8 +35,8 @@ const ViewChallenge = () => {
         <Box
           display="flex"
           flexDir="column"
-          alignItems="flex-start"
-          width="80vw"
+          alignItems={{base: 'center', md:"flex-start"}}
+          width={{base:'90vw', md:"80vw"}}
           height="40vh"
           justifyContent="space-around"
         >
@@ -44,15 +44,16 @@ const ViewChallenge = () => {
             as="b"
             background="#FEE227"
             width="fit-content"
+            fontSize={{base: 'xs',md: 'sm', lg: 'md' }}
             paddingTop={2}
             paddingBottom={2}
-            paddingRight={10}
+            paddingRight={{base:'2', md: '10'}}
             borderRadius="lg"
-            paddingLeft={10}
+            paddingLeft={{base:'2', md: '10'}}
           >
             {SUBSTATUS(challengeDetails.startDate, challengeDetails.endDate)}
           </Text>
-          <Text color="white" as="b" fontSize="5xl">
+          <Text color="white" as="b" fontSize={{base: '3xl', md:"5xl"}} textAlign={{base: 'center', md: 'left'}}>
             {challengeDetails.name}
           </Text>
           <Text
@@ -98,7 +99,7 @@ const ViewChallenge = () => {
             paddingBottom={3}
             borderColor="whatsapp.600"
           >
-            <Text as="b" fontSize="lg">
+            <Text as="b" fontSize={{base: 'md', md:"lg"}}>
               Overview
             </Text>
           </Box>
@@ -107,9 +108,9 @@ const ViewChallenge = () => {
               variant="solid"
               background="whatsapp.400"
               color="white"
-              paddingRight={10}
-              paddingLeft={10}
-              marginRight={5}
+              paddingRight={{base: 5, md: 10}}
+              paddingLeft={{base: 5, md: 10}}
+              marginRight={{base: 2, md: 5}}
               onClick={() =>
                 history.push(`/editchallenge/${challengeDetails._id}`)
               }
@@ -121,8 +122,8 @@ const ViewChallenge = () => {
               color="red"
               border="2px"
               borderColor="red"
-              paddingRight={8}
-              paddingLeft={8}
+              paddingRight={{base: 4, md: 8}}
+              paddingLeft={{base: 4, md: 8}}
               onClick={() => {
                 const challengeArrayPostDeletion = challengeArray.filter(
                   (challenge) => {
