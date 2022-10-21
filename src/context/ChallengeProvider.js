@@ -14,7 +14,7 @@ const ChallengeProvider = (props) => {
       pic: Datathon,
       name: "Data Science Bootcamp - Graded Datathon",
       startDate: "2022-10-18T12:00",
-      endDate: "2022-10-21T15:00",
+      endDate: "2022-10-21T12:00",
       level: "Easy",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus itaque impedit perspiciatis tempora voluptatem minus hic molestias labore voluptatum similique nihil enim, nesciunt dolorum alias sint quam dolorem animi unde praesentium iure sunt ipsam beatae. Totam enim, vero doloremque excepturi aliquam iusto tenetur corrupti soluta dignissimos, facilis nesciunt quidem modi? Vel consequatur laborum enim officiis modi fugit corporis porro assumenda dolorum. Accusamus eveniet porro eaque itaque iure ipsa quis necessitatibus delectus neque molestias nemo modi tempora deserunt, asperiores maiores cupiditate voluptate in tempore culpa. Corrupti ut illum amet debitis ducimus excepturi magni beatae iure hic, ullam quod rerum fuga illo sit? Exercitationem ducimus consectetur est eum quibusdam laboriosam incidunt omnis illum tempora accusantium pariatur debitis ullam neque, ipsam quaerat labore explicabo tempore facere. Aliquam veniam, minima nostrum quam amet dolores, commodi sunt optio corrupti doloremque, animi eaque enim alias harum quasi? Debitis nostrum, maxime numquam ratione praesentium odio asperiores.",
@@ -23,8 +23,8 @@ const ChallengeProvider = (props) => {
       _id: "GluLo1IHOX",
       pic: Butterfly,
       name: "Data Sprint 72 - Butterfly Identification",
-      startDate: "2022-10-15",
-      endDate: "2022-10-17",
+      startDate: "2022-10-15T15:00",
+      endDate: "2022-10-17T15:00",
       level: "Medium",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus itaque impedit perspiciatis tempora voluptatem minus hic molestias labore voluptatum similique nihil enim, nesciunt dolorum alias sint quam dolorem animi unde praesentium iure sunt ipsam beatae. Totam enim, vero doloremque excepturi aliquam iusto tenetur corrupti soluta dignissimos, facilis nesciunt quidem modi? Vel consequatur laborum enim officiis modi fugit corporis porro assumenda dolorum. Accusamus eveniet porro eaque itaque iure ipsa quis necessitatibus delectus neque molestias nemo modi tempora deserunt, asperiores maiores cupiditate voluptate in tempore culpa. Corrupti ut illum amet debitis ducimus excepturi magni beatae iure hic, ullam quod rerum fuga illo sit? Exercitationem ducimus consectetur est eum quibusdam laboriosam incidunt omnis illum tempora accusantium pariatur debitis ullam neque, ipsam quaerat labore explicabo tempore facere. Aliquam veniam, minima nostrum quam amet dolores, commodi sunt optio corrupti doloremque, animi eaque enim alias harum quasi? Debitis nostrum, maxime numquam ratione praesentium odio asperiores.",
@@ -33,8 +33,8 @@ const ChallengeProvider = (props) => {
       _id: "XDqxtDJhhw",
       pic: Graduates,
       name: "Engineering Graduates Employment Outcomes",
-      startDate: "2022-10-12",
-      endDate: "2022-10-15",
+      startDate: "2022-10-12T18:00",
+      endDate: "2022-10-15T18:00",
       level: "Easy",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus itaque impedit perspiciatis tempora voluptatem minus hic molestias labore voluptatum similique nihil enim, nesciunt dolorum alias sint quam dolorem animi unde praesentium iure sunt ipsam beatae. Totam enim, vero doloremque excepturi aliquam iusto tenetur corrupti soluta dignissimos, facilis nesciunt quidem modi? Vel consequatur laborum enim officiis modi fugit corporis porro assumenda dolorum. Accusamus eveniet porro eaque itaque iure ipsa quis necessitatibus delectus neque molestias nemo modi tempora deserunt, asperiores maiores cupiditate voluptate in tempore culpa. Corrupti ut illum amet debitis ducimus excepturi magni beatae iure hic, ullam quod rerum fuga illo sit? Exercitationem ducimus consectetur est eum quibusdam laboriosam incidunt omnis illum tempora accusantium pariatur debitis ullam neque, ipsam quaerat labore explicabo tempore facere. Aliquam veniam, minima nostrum quam amet dolores, commodi sunt optio corrupti doloremque, animi eaque enim alias harum quasi? Debitis nostrum, maxime numquam ratione praesentium odio asperiores.",
@@ -43,8 +43,8 @@ const ChallengeProvider = (props) => {
       _id: "OloAhQskMw",
       pic: Travel,
       name: "Travel Insurance Claim Prediction",
-      startDate: "2022-10-08",
-      endDate: "2022-10-10",
+      startDate: "2022-10-08T21:00",
+      endDate: "2022-10-10T21:00",
       level: "Hard",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea natus itaque impedit perspiciatis tempora voluptatem minus hic molestias labore voluptatum similique nihil enim, nesciunt dolorum alias sint quam dolorem animi unde praesentium iure sunt ipsam beatae. Totam enim, vero doloremque excepturi aliquam iusto tenetur corrupti soluta dignissimos, facilis nesciunt quidem modi? Vel consequatur laborum enim officiis modi fugit corporis porro assumenda dolorum. Accusamus eveniet porro eaque itaque iure ipsa quis necessitatibus delectus neque molestias nemo modi tempora deserunt, asperiores maiores cupiditate voluptate in tempore culpa. Corrupti ut illum amet debitis ducimus excepturi magni beatae iure hic, ullam quod rerum fuga illo sit? Exercitationem ducimus consectetur est eum quibusdam laboriosam incidunt omnis illum tempora accusantium pariatur debitis ullam neque, ipsam quaerat labore explicabo tempore facere. Aliquam veniam, minima nostrum quam amet dolores, commodi sunt optio corrupti doloremque, animi eaque enim alias harum quasi? Debitis nostrum, maxime numquam ratione praesentium odio asperiores.",
