@@ -26,6 +26,7 @@ const Explore = () => {
   } = ChallengeState();
 
   useEffect(() => {}, [challengeArray]);
+
   const checkBoxHandler = (event) => {
     const newFilter = event.target.value;
     if (appliedFilter.includes(newFilter)) {
@@ -77,7 +78,7 @@ const Explore = () => {
             value={searchQuery}
             onChange={searchQueryHandler}
           />
-          <Menu>
+          <Menu closeOnSelect={false}>
             <MenuButton
               as={Button}
               rightIcon={<ChevronDownIcon />}
@@ -106,7 +107,9 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  defaultChecked={appliedFilter.includes("Active") ? true : false}
+                  defaultChecked={
+                    appliedFilter.includes("Active") ? true : false
+                  }
                   value="Active"
                   onChange={checkBoxHandler}
                 >
@@ -117,7 +120,9 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  defaultChecked={appliedFilter.includes("Upcoming") ? true : false}
+                  defaultChecked={
+                    appliedFilter.includes("Upcoming") ? true : false
+                  }
                   value="Upcoming"
                   onChange={checkBoxHandler}
                 >
@@ -152,7 +157,9 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  defaultChecked={appliedFilter.includes("Medium") ? true : false}
+                  defaultChecked={
+                    appliedFilter.includes("Medium") ? true : false
+                  }
                   value="Medium"
                   onChange={checkBoxHandler}
                 >
