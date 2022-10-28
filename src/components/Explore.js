@@ -14,11 +14,18 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon, Search2Icon } from "@chakra-ui/icons";
 import { ChallengeState } from "../context/ChallengeProvider";
+import { useEffect } from "react";
 
 const Explore = () => {
-  const { appliedFilter, setAppliedFilter, searchQuery, setSearchQuery } =
-    ChallengeState();
+  const {
+    appliedFilter,
+    setAppliedFilter,
+    searchQuery,
+    setSearchQuery,
+    challengeArray,
+  } = ChallengeState();
 
+  useEffect(() => {}, [challengeArray]);
   const checkBoxHandler = (event) => {
     const newFilter = event.target.value;
     if (appliedFilter.includes(newFilter)) {
@@ -88,7 +95,7 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  checked={appliedFilter.includes("All") ? true : false}
+                  defaultChecked={appliedFilter.includes("All") ? true : false}
                   value="All"
                   onChange={checkBoxHandler}
                 >
@@ -99,7 +106,7 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  checked={appliedFilter.includes("Active") ? true : false}
+                  defaultChecked={appliedFilter.includes("Active") ? true : false}
                   value="Active"
                   onChange={checkBoxHandler}
                 >
@@ -110,7 +117,7 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  checked={appliedFilter.includes("Upcoming") ? true : false}
+                  defaultChecked={appliedFilter.includes("Upcoming") ? true : false}
                   value="Upcoming"
                   onChange={checkBoxHandler}
                 >
@@ -121,7 +128,7 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  checked={appliedFilter.includes("Past") ? true : false}
+                  defaultChecked={appliedFilter.includes("Past") ? true : false}
                   value="Past"
                   onChange={checkBoxHandler}
                 >
@@ -134,7 +141,7 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  checked={appliedFilter.includes("Easy") ? true : false}
+                  defaultChecked={appliedFilter.includes("Easy") ? true : false}
                   value="Easy"
                   onChange={checkBoxHandler}
                 >
@@ -145,7 +152,7 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  checked={appliedFilter.includes("Medium") ? true : false}
+                  defaultChecked={appliedFilter.includes("Medium") ? true : false}
                   value="Medium"
                   onChange={checkBoxHandler}
                 >
@@ -156,7 +163,7 @@ const Explore = () => {
                 <Checkbox
                   size={{ base: "sm", md: "md" }}
                   colorScheme="green"
-                  checked={appliedFilter.includes("Hard") ? true : false}
+                  defaultChecked={appliedFilter.includes("Hard") ? true : false}
                   value="Hard"
                   onChange={checkBoxHandler}
                 >
