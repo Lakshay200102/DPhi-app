@@ -9,7 +9,7 @@ It is not connected to any database instead used dummy data for illustration pur
   
 ## Deployed Link
 
-https://dphi-app-reactjs.herokuapp.com/
+https://dphi-react.netlify.app/
 
 ## Run on Local Machine
 Clone the project
